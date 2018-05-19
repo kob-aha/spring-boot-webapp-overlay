@@ -29,12 +29,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
-        UserDetails user =
-            User.withUsername("user")
-                .password("password")
-                .roles("USER")
-                .build();
+        UserDetails user = getRegularUser();
+        UserDetails managementUser = getManagementUser();
 
-        return new InMemoryUserDetailsManager(user);
+        return new InMemoryUserDetailsManager(user, managementUser);
+    }
+
+    private UserDetails getRegularUser() {
+        return User.withUsername("user")
+            .password("password")
+            .roles("USER")
+            .build();
+    }
+
+    private UserDetails getManagementUser() {
+        return User.withUsername("admin")
+                .password("password")
+                .roles("ACTRADMIN", "USER")
+                .build();
     }
 }
