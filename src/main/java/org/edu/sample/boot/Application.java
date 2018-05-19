@@ -1,14 +1,14 @@
 package org.edu.sample.boot;
 
-import java.util.Arrays;
-
-import org.edu.sample.boot.config.BootWebappConfiguration;
+import org.edu.sample.boot.config.SpringScanComponentMarker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication(scanBasePackageClasses = {BootWebappConfiguration.class})
+import java.util.Arrays;
+
+@SpringBootApplication(scanBasePackageClasses = {SpringScanComponentMarker.class})
 public class Application {
     
     public static void main(String[] args) {

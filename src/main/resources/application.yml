@@ -1,6 +1,7 @@
 server:
   port: 8082
 
-endpoints:
-  shutdown:
-    enabled: true
+management:
+  endpoints:
+    shutdown:
+      enabled: true
